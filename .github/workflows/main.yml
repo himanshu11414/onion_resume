@@ -1,24 +1,17 @@
-name: Build and Run Docker Image
+name: Run ls -la Command
 
 on:
   push:
     branches:
-      - main  # Trigger workflow on push to the main branch
+      - main  # Trigger the workflow on pushes to the main branch
 
 jobs:
-  build:
+  list_files:
     runs-on: ubuntu-latest
 
     steps:
-      # Build the Docker image
-      - name: Build Docker image
-        run: |
-          docker build -t onione:latest .
+    - name: Checkout Repository
+      uses: actions/checkout@v3
 
-      # Run the Docker image
-      - name: Run Docker container
-        run: |
-          docker run -it onione:latest
-
-
-
+    - name: List Files and Directories
+      run: ls -la

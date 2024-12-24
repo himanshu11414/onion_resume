@@ -20,4 +20,4 @@ jobs:
       run: docker build -t onion .
 
     - name: Run Docker Container
-      run: docker run -it --rm onion
+      run: docker run --rm onion
